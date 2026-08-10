@@ -773,9 +773,9 @@ def cleanup_memories(store, now, dry_run=True):
 
 **“忘什么”是一个数据生命周期管理问题。** PowerMem 用艾宾浩斯遗忘曲线来实现时效性管理：每条记忆有一个权重，随时间自然衰减；但如果这条记忆在后续对话中被再次提及，权重回升。经常被用到的记忆权重持续维持在高位，不再被提及的记忆自然淡出。落到存储上，淡出还要继续走完归档与清理，否则“逻辑上忘了、物理上还占着索引”。
 
-这套机制在 LOCOMO 基准测试（Shopify 开发的 Agent 长期记忆评估基准）上取得了 78.7% 的准确率。作为对比，把所有历史对话直接塞进上下文窗口的“暴力方案”只有 52.9%。差距接近 50%。
+LOCOMO 是 Snap Research 发布的 Agent 长期记忆评估基准。PowerMem 曾在其文档中公布使用 LOCOMO 的系统级测试，但这些数字只适用于该报告的特定 PowerMem 版本、模型、judge、数据切分、指标和运行命令；它们不是 LOCOMO 数据集本身的固定结论。
 
-这个数据说明了一件反直觉的事：**把所有信息都“记住”，效果反而不如有选择地记忆。** 信息过载会干扰检索——当上下文中塞满了过时的、无关的信息，模型反而找不到真正有用的那几条。成本侧也同理：全量死记会同时推高存储、延迟和 Token 账单。
+这个案例只能提出待验证的假设：**在特定任务和实现下，有选择地管理记忆可能优于把全部历史直接塞进上下文。** 信息过载确实可能干扰检索并推高存储、延迟和 Token 成本，但是否获益、获益多少，都需要在自己的数据、模型和上下文窗口限制下对照测试。
 
 还有一层经常被忽略的数据边界：**多用户场景下，“记对了”之前，先要“记在正确的命名空间里”。** `user_id` 过滤和权限校验看起来像安全需求，本质上仍是数据层问题——共享存储如何切出互不串扰的视图，以及写操作如何在入口处拦住越权。没有隔离的记忆系统，个性化越强，串户风险越大。清理作业同样必须带着命名空间跑，批量任务比单次请求更容易误伤别人的数据。
 
@@ -902,7 +902,7 @@ while True:
 - **ReAct 论文原文**：[ReAct： Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)，定义了 Agent “推理-行动”循环模式的经典论文
 - **CoALA 论文**：[Cognitive Architectures for Language Agents](https://arxiv.org/pdf/2309.02427)，系统定义了 Agent 记忆的分类框架（语义记忆、情景记忆、程序记忆），被 LangChain 等主流框架广泛采用
 - **LangGraph 记忆架构**：LangGraph 的 Checkpointer 和 Memory Store 实现，是当前主流 Agent 框架中记忆管理的工程参考
-- **LOCOMO Benchmark**：[github.com/Shopify/locomo](https://github.com/Shopify/locomo)，Shopify 开发的 Agent 长期记忆评估基准，用于衡量记忆系统的检索准确率
+- **LOCOMO Benchmark**：[snap-research/locomo](https://github.com/snap-research/locomo)，Snap Research 发布的长期对话记忆评估基准，可用于衡量记忆系统的检索与问答表现
 - **X1 扩展篇**：[探究 AI Agent 记忆系统：从遗忘曲线到永久记忆](../extra/X1%20探究%20AI%20Agent%20记忆系统：从遗忘曲线到永久记忆.md)，在 D4 基础上深入保留率公式、巩固蒸馏与生命周期工程——想把第六部分的控本直觉落成可调参数时，从这里继续
 
 > **下一期预告**：D5 · 课程总结——今天讲的程序记忆告诉我们 Agent 需要”操作手册”。但当手册越来越多、分散在不同平台时，一个新问题出现了：经验数据的碎片化。后续 X5 会进一步用 MCP 把稳定 Skill 包装成标准化工具，让不同 Agent 客户端统一调用。
