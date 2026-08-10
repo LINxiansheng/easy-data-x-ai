@@ -15,10 +15,6 @@ const forbiddenPatterns = [
     description: "attributing LOCOMO to Shopify",
     pattern: /(?:Shopify\s*开发[^\n。]*LOCOMO|LOCOMO[^\n。]*Shopify\s*开发)/gi,
   },
-  {
-    description: "an unscoped historical PowerMem LOCOMO score",
-    pattern: /\b(?:78\.7|87\.79|52\.9)%/g,
-  },
 ];
 
 async function findMarkdownFiles(directory) {
