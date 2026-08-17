@@ -773,7 +773,7 @@ def cleanup_memories(store, now, dry_run=True):
 
 **“忘什么”是一个数据生命周期管理问题。** PowerMem 用艾宾浩斯遗忘曲线来实现时效性管理：每条记忆有一个权重，随时间自然衰减；但如果这条记忆在后续对话中被再次提及，权重回升。经常被用到的记忆权重持续维持在高位，不再被提及的记忆自然淡出。落到存储上，淡出还要继续走完归档与清理，否则“逻辑上忘了、物理上还占着索引”。
 
-这套机制在 LOCOMO 基准测试（Shopify 开发的 Agent 长期记忆评估基准）上取得了 78.7% 的准确率。作为对比，把所有历史对话直接塞进上下文窗口的“暴力方案”只有 52.9%。差距接近 50%。
+这套机制在 LOCOMO 基准测试（Snap Research 发布的 Agent 长期记忆评估基准）上取得了 78.7% 的准确率。作为对比，把所有历史对话直接塞进上下文窗口的“暴力方案”只有 52.9%。差距接近 50%。
 
 这个数据说明了一件反直觉的事：**把所有信息都“记住”，效果反而不如有选择地记忆。** 信息过载会干扰检索——当上下文中塞满了过时的、无关的信息，模型反而找不到真正有用的那几条。成本侧也同理：全量死记会同时推高存储、延迟和 Token 账单。
 
@@ -902,7 +902,7 @@ while True:
 - **ReAct 论文原文**：[ReAct： Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)，定义了 Agent “推理-行动”循环模式的经典论文
 - **CoALA 论文**：[Cognitive Architectures for Language Agents](https://arxiv.org/pdf/2309.02427)，系统定义了 Agent 记忆的分类框架（语义记忆、情景记忆、程序记忆），被 LangChain 等主流框架广泛采用
 - **LangGraph 记忆架构**：LangGraph 的 Checkpointer 和 Memory Store 实现，是当前主流 Agent 框架中记忆管理的工程参考
-- **LOCOMO Benchmark**：[github.com/Shopify/locomo](https://github.com/Shopify/locomo)，Shopify 开发的 Agent 长期记忆评估基准，用于衡量记忆系统的检索准确率
+- **LOCOMO Benchmark**：[snap-research/locomo](https://github.com/snap-research/locomo)，Snap Research 发布的长期对话记忆评估基准，可用于衡量记忆系统的检索与问答表现
 - **X1 扩展篇**：[探究 AI Agent 记忆系统：从遗忘曲线到永久记忆](../extra/X1%20探究%20AI%20Agent%20记忆系统：从遗忘曲线到永久记忆.md)，在 D4 基础上深入保留率公式、巩固蒸馏与生命周期工程——想把第六部分的控本直觉落成可调参数时，从这里继续
 
 > **下一期预告**：D5 · 课程总结——今天讲的程序记忆告诉我们 Agent 需要”操作手册”。但当手册越来越多、分散在不同平台时，一个新问题出现了：经验数据的碎片化。后续 X5 会进一步用 MCP 把稳定 Skill 包装成标准化工具，让不同 Agent 客户端统一调用。

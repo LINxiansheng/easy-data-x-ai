@@ -429,7 +429,7 @@ PowerMem 在工程上采用了用户、Agent、任务三层标识加可见性控
 
 上面这套衰减策略，不是纸上谈兵——业界已有实践验证它的价值。
 
-LOCOMO 基准测试（Shopify 开发的一套 Agent 长期记忆评估标准）提供了一个很有说服力的对比：采用**有选择的记忆 + 时效性衰减**的系统，准确率达到 **78.7%**；而把所有历史对话直接塞进上下文窗口的暴力全记方案，只有 **52.9%**——差距接近一半。
+LOCOMO 基准测试（Snap Research 发布的一套 Agent 长期记忆评估标准）提供了一个很有说服力的对比：采用**有选择的记忆 + 时效性衰减**的系统，准确率达到 **78.7%**；而把所有历史对话直接塞进上下文窗口的暴力全记方案，只有 **52.9%**——差距接近一半。
 
 这个对比说明了一件事：**把所有信息都记住，效果反而不如有选择地记忆。** 就像一个什么都记的人，在关键时刻反而想不起重要的事；而一个善于整理记忆的人，总能在对的时候想起对的信息。
 
@@ -478,7 +478,7 @@ LOCOMO 基准测试（Shopify 开发的一套 Agent 长期记忆评估标准）�
 如果你对本期提到的概念想做进一步了解，以下是一些推荐资源：
 
 - **CoALA 论文原文**：[Cognitive Architectures for Language Agents]（https://arxiv.org/pdf/2309.02427)，系统定义了 Agent 记忆的分类框架，被 LangChain 等主流框架广泛采用
-- **LOCOMO Benchmark**：[github.com/Shopify/locomo]（https://github.com/Shopify/locomo)，Shopify 开发的 Agent 长期记忆评估基准，用于衡量记忆系统的检索准确率
+- **LOCOMO Benchmark**：[snap-research/locomo](https://github.com/snap-research/locomo)，Snap Research 发布的 Agent 长期记忆评估基准，用于评测长对话任务中的检索与问答表现
 - **ChatGPT Memory 功能**：OpenAI 对用户记忆管理的产品实践，可以作为记忆系统信任设计的参考案例
 - **艾宾浩斯遗忘曲线**：经典认知科学模型，解释了人类记忆随时间衰减的规律，是 Agent 记忆时效性管理的重要理论参考
 - **PowerMem**：[github.com/oceanbase/powermem](https://github.com/oceanbase/powermem)，OceanBase 开源 Agent 记忆系统，实现了基于艾宾浩斯曲线的遗忘分数计算与主动淘汰机制，可作为本期衰减策略的工程参考
