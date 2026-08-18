@@ -35,6 +35,7 @@ TEST_GROUPS = (
     TestGroup("D4", "code/D4", "test*.py", "code"),
     TestGroup("X1 示例入口", "code/X1", "test*.py", "code/X1"),
     TestGroup("X2", "code/X2/tests", "test*.py", "code/X2"),
+    TestGroup("X4", "code/X4/tests", "test*.py", "code"),
     TestGroup("X5 MCP", "code/X5", "test*.py", "code/X5"),
     TestGroup("P5", "code/P5/tests", "test*.py", "code/P5"),
 )

@@ -92,7 +92,7 @@ export default defineConfig({
           },
           { text: 'X2：多 Skill 与上下文工程（P4 伴读）', link: '/extra/X2 多 Skill 给上下文工程带来的麻烦：如何应对 Agent「爆上下文」' },
           { text: 'X3：混合检索与统一数据基座', link: '/extra/X3 从零到一上手混合检索：AI Native 统一数据基座实战' },
-          { text: 'X4：数据湖库与多模数据降本（共建中）', link: '/extra/X4 海量 AI Agent 多模数据降本：数据湖库登场' },
+          { text: 'X4：数据湖库与多模数据降本', link: '/extra/X4 海量 AI Agent 多模数据降本：数据湖库登场' },
           { text: 'X5：从 Skill 到 MCP Tool（P4 伴读）', link: '/extra/X5 从 Skill 到 MCP Tool' },
           { text: 'X6：Harness、Loop 与 Graph（D1/D3 进阶）', link: '/extra/X6 从 Harness 到 Loop，再到 Graph Engineering' }
         ]

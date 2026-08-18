@@ -1,0 +1,12 @@
+# X4 课程代码依赖
+# 分层原则:
+#   1) code/X4/core  —— 纯 Python 标准库,零第三方依赖,确保 CI / 单元测试无需集群即可运行。
+#   2) spark_jobs    —— 运行在 docker-compose 编排的 Spark 集群内(独立镜像自带 pyspark)。
+#   3) 本地编排/基准 —— 仅在这些脚本需要时安装,见 README。
+#
+# 以下依赖仅在本地基准 / 查询脚本需要时安装(spark_jobs 由 Spark 镜像自带):
+#   pyspark>=3.5.0
+#   pyarrow>=15.0.0        # Spark Iceberg Parquet 落盘与本地读取
+#   pyiceberg>=0.7
+#   boto3>=1.34            # MinIO S3 访问
+#   openai>=1.0.0           # OpenAI 兼容 Embedding(text-embedding-v4)

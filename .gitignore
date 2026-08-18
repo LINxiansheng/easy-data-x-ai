@@ -28,6 +28,10 @@ __pycache__/
 # seekdb / memory 本地数据库（运行示例代码时生成）
 code/**/seekdb.db/
 code/**/seekdb/
+
+# X4 本地大数据依赖与 Spark 运行产物（体积大，按 code/X4/README 自行下载/生成）
+jars/
+spark-warehouse/
 code/**/memory.db/
 code/**/memory_persistent.db/
 code/D3/d3_seekdb/
