@@ -250,7 +250,7 @@ python code/D1/d1_1_base.py
     <img src="https://avatars.githubusercontent.com/u/13233790?v=4&s=144" width="72" height="72" alt="liboyang0730" style="border-radius:50%;" />
   </a><br />
   <a href="https://github.com/liboyang0730" title="打开 liboyang0730 的 GitHub 主页"><kbd><strong>liboyang073…</strong></kbd></a><br />
-  <sub>102 commits</sub>
+  <sub>103 commits</sub>
 </td>
 <td align="center" valign="top" width="104">
   <a href="https://github.com/Kratos-Lee" title="Kratos-Lee">
@@ -274,6 +274,13 @@ python code/D1/d1_1_base.py
   <sub>6 commits</sub>
 </td>
 <td align="center" valign="top" width="104">
+  <a href="https://github.com/Terminator666666" title="Terminator666666">
+    <img src="https://avatars.githubusercontent.com/u/104662484?v=4&s=144" width="72" height="72" alt="Terminator666666" style="border-radius:50%;" />
+  </a><br />
+  <a href="https://github.com/Terminator666666" title="打开 Terminator666666 的 GitHub 主页"><kbd><strong>Terminator6…</strong></kbd></a><br />
+  <sub>2 commits</sub>
+</td>
+<td align="center" valign="top" width="104">
   <a href="https://github.com/amber-moe" title="amber-moe">
     <img src="https://avatars.githubusercontent.com/u/42762957?v=4&s=144" width="72" height="72" alt="amber-moe" style="border-radius:50%;" />
   </a><br />
@@ -294,6 +301,8 @@ python code/D1/d1_1_base.py
   <a href="https://github.com/Iridescent115" title="打开 Iridescent115 的 GitHub 主页"><kbd><strong>Iridescent1…</strong></kbd></a><br />
   <sub>1 commit</sub>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="104">
   <a href="https://github.com/JasonZhang10086" title="JasonZhang10086">
     <img src="https://avatars.githubusercontent.com/u/43478980?v=4&s=144" width="72" height="72" alt="JasonZhang10086" style="border-radius:50%;" />
@@ -301,8 +310,6 @@ python code/D1/d1_1_base.py
   <a href="https://github.com/JasonZhang10086" title="打开 JasonZhang10086 的 GitHub 主页"><kbd><strong>JasonZhang1…</strong></kbd></a><br />
   <sub>1 commit</sub>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="104">
   <a href="https://github.com/jay666mnj" title="jay666mnj">
     <img src="https://avatars.githubusercontent.com/u/192066339?v=4&s=144" width="72" height="72" alt="jay666mnj" style="border-radius:50%;" />
