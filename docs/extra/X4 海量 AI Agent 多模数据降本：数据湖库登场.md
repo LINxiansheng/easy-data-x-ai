@@ -98,7 +98,7 @@ D4 的 `d4_5_multi_user_isolation` 在单机上用内存结构做过用户隔离
 
 ## 5. 动手实验：从数据生成到 RAG 全链路
 
-配套代码在 `code/X4`（完整命令见 [code/X4/README](../code/X4/README.md)）。
+配套代码在 `code/X4`（完整命令见 [code/X4/README](https://github.com/datawhalechina/easy-data-x-ai/tree/main/code/X4/README.md)）。
 
 **Step 0 — 纯函数单测（无需任何服务，CI 即此）**
 ```bash
