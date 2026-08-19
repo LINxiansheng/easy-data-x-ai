@@ -1,0 +1,1 @@
+"""X4 core 纯函数层:与 Spark/seekdb 解耦,便于 CI 单测。"""

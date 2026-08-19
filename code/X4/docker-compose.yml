@@ -1,0 +1,88 @@
+# X4 课程推荐：严格 Spark 集群 + MinIO(Iceberg 底层存储)
+# 主链路(spark_jobs/*)由此编排的集群执行;单元测试与 CI 走纯 Python,不依赖本编排。
+#
+# 用法(仓库根目录):
+#   docker compose -f code/X4/docker-compose.yml up -d --build
+#   等待 minio 健康后,按 code/X4/README.md 提交 Spark 任务。
+#
+# 重新生成编排文件: docker compose -f code/X4/docker-compose.yml down -v
+services:
+  minio:
+    image: minio/minio:RELEASE.2024-06-13T22-53-53Z
+    container_name: x4-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${X4_MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${X4_MINIO_SECRET_KEY:-minioadmin}
+    volumes:
+      - x4-minio-data:/data
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  # 一次性初始化:创建 Iceberg 仓库桶(主表所在)与审计/对象桶。
+  init-minio:
+    image: minio/mc:RELEASE.2024-06-04T15-55-35Z
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://minio:9000 minioadmin minioadmin &&
+      mc mb --ignore-existing local/x4-iceberg &&
+      mc mb --ignore-existing local/x4-objects &&
+      echo 'MinIO 桶已就绪: x4-iceberg / x4-objects'
+      "
+
+  spark-master:
+    image: bitnami/spark:3.5.1
+    container_name: x4-spark-master
+    environment:
+      SPARK_MODE: master
+      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+      SPARK_RPC_ENCRYPTION_ENABLED: "no"
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: "no"
+      SPARK_PUBLIC_DNS: localhost
+    ports:
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:7077:7077"
+    volumes:
+      - ./spark_jobs:/opt/spark-apps:ro
+      - ./conf:/opt/spark-conf:ro
+
+  spark-worker:
+    image: bitnami/spark:3.5.1
+    container_name: x4-spark-worker
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: ${X4_WORKER_MEMORY:-3g}
+      SPARK_WORKER_CORES: ${X4_WORKER_CORES:-2}
+      SPARK_RPC_AUTHENTICATION_ENABLED: "false"
+      SPARK_RPC_ENCRYPTION_ENABLED: "false"
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: "false"
+
+  spark-submit:
+    image: bitnami/spark:3.5.1
+    container_name: x4-spark-submit
+    depends_on:
+      - spark-master
+      - spark-worker
+      - minio
+    working_dir: /opt/spark-apps
+    volumes:
+      - ./spark_jobs:/opt/spark-apps
+      - ./conf:/opt/spark-conf
+      - ~/.m2:/root/.m2:cached
+    # 进入而非常驻;真正任务由 README 里的 spark-submit 命令触发。
+    command: ["tail", "-f", "/dev/null"]
+
+volumes:
+  x4-minio-data:
