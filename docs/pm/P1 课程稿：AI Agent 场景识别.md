@@ -407,7 +407,7 @@ Agent 能做的是：理解“去美国出差”这个模糊意图，主动判�
 
 传统方案是云端 SaaS——用户通过网页或 App 使用你的 AI 服务。但 2025 年底开始，一个新的趋势正在出现：**本地 Agent**。
 
-代表项目是 [OpenClaw](https://github.com/101dotxyz/OpenClaw)——一个开源的自主 AI Agent，完全在用户本地设备上运行，数据不出本地，可以 7×24 小时自主执行任务。
+代表项目是 [OpenClaw](https://github.com/openclaw/openclaw)——一个开源的自主 AI Agent，完全在用户本地设备上运行，数据不出本地，可以 7×24 小时自主执行任务。
 
 从产品决策角度看，本地 Agent 解决了一个核心问题：**数据隐私与信任**。
 
