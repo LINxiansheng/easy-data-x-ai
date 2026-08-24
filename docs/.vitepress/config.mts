@@ -76,7 +76,21 @@ export default defineConfig({
         ]
       },
       {
-        text: '第四章：扩展篇',
+        text: '第四章：产业应用篇',
+        collapsed: true,
+        items: [
+          { text: 'I1：AI 原生数据库基础', link: '/industry/I1 课程稿：AI 原生数据库基础' },
+          { text: 'I2：向量数据库与 RAG', link: '/industry/I2 课程稿：向量数据库与 RAG' },
+          { text: 'I3：SQL × AI —— AI Functions 的设计与执行', link: '/industry/I3 课程稿：SQL × AI —— AI Functions 的设计与执行' },
+          { text: 'I4：File SQL for AI Agent', link: '/industry/I4 课程稿：File SQL for AI Agent' },
+          { text: 'I5：AI 列 —— 模型驱动派生数据的自动维护', link: '/industry/I5 课程稿：AI 列 —— 模型驱动派生数据的自动维护' },
+          { text: 'I6：上下文工程概述', link: '/industry/I6 课程稿：上下文工程概述' },
+          { text: 'I7：PowerContext 的设计与实现', link: '/industry/I7 课程稿：PowerContext 的设计与实现' },
+          { text: 'I8：案例场景和测评构建', link: '/industry/I8 课程稿：案例场景和测评构建' }
+        ]
+      },
+      {
+        text: '第五章：扩展篇',
         collapsed: true,
         items: [
           {
