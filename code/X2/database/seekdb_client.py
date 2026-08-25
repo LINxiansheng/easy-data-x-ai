@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import platform
 import socket
 from importlib.util import find_spec
 from pathlib import Path
@@ -108,12 +107,9 @@ def connection_hint(mode: SeekdbMode | None = None) -> str:
         ])
     else:
         lines.extend([
-            "  Linux 嵌入式模式可直接使用，无需 Docker。",
+            "  嵌入式模式可直接使用，无需 Docker。",
             f"  数据目录: {DEFAULT_SEEKDB_PATH}",
         ])
-    if platform.system() == "Darwin":
-        lines.append("")
-        lines.append("  提示: macOS 不支持嵌入式 seekdb，课程推荐使用 Docker Server 模式。")
     return "\n".join(lines)
 
 

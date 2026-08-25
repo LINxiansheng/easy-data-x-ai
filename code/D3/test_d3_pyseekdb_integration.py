@@ -1,7 +1,6 @@
 import contextlib
 import io
 import os
-import platform
 import runpy
 import tempfile
 import time
@@ -125,10 +124,6 @@ class WaitForDocumentsTests(unittest.TestCase):
 
 class RealPyseekdbIntegrationTests(unittest.TestCase):
     def test_ingest_query_hybrid_and_upsert_in_temporary_database(self):
-        if platform.system() == "Darwin" and not os.getenv("SEEKDB_TEST_HOST"):
-            self.skipTest(
-                "macOS 不支持 Embedded seekdb；请配置 SEEKDB_TEST_HOST 连接测试服务"
-            )
         ingest = load_module("d3_1_ingest.py")
         compare = load_module("d3_3_compare.py")
         production = load_module("d3_4_production.py")
