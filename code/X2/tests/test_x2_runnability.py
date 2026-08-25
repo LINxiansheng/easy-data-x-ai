@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+import os
 import sys
 import unittest
-import os
-import platform
 import subprocess
 import tempfile
 from contextlib import redirect_stdout
@@ -23,7 +22,7 @@ from database.schema import EXAMPLES_COLLECTION, RULES_COLLECTION, SKILLS_COLLEC
 
 
 def real_database_env() -> dict[str, str]:
-    """在 macOS 测试时复用外部 seekdb；其他环境仍覆盖 Embedded 路径。"""
+    """配置外部测试库时使用 Server，否则使用 Embedded。"""
     host = os.getenv("SEEKDB_TEST_HOST")
     if not host:
         return {"SEEKDB_MODE": "embedded", "SEEKDB_DATABASE": "x2_skills"}
@@ -75,10 +74,6 @@ category: test
 print("ok")
 ```
 """
-        if platform.system() == "Darwin" and not os.getenv("SEEKDB_TEST_HOST"):
-            self.skipTest(
-                "macOS 不支持 Embedded seekdb；请配置 SEEKDB_TEST_HOST 连接测试服务"
-            )
         with tempfile.TemporaryDirectory() as temp_dir, patch.dict(
             os.environ,
             real_database_env(),

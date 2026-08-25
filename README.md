@@ -42,9 +42,18 @@
 - 📊 看得见的性能差距：通过对比实验见证"混合检索"与"纯向量检索"的效果差异
 - 🤖 从零到一的 Agent 构建：为 Agent 加上记忆系统，教会它使用技能
 
+### 产业应用篇：见其用（面向产业实践与课程共建）
+
+**适合人群：** 希望了解 AI 数据系统产业实践的开发者、技术爱好者和课程共建者
+
+**学完收获：**
+- 🧭 产业能力边界：理解 AI 原生数据库、上下文工程等技术在真实场景中的定位
+- 🧪 场景与实验设计：把概念拆成可运行、可观察、可评测的课程实践
+- 🤝 开源共建经验：围绕 AI Native 数据库、AI 记忆与上下文管理等方向完善学习材料和案例
+
 ## 📖 课程目录
 
-> F 打底 → P 论道（为什么/怎么设计）→ D 习术（怎么动手实现）。
+> F 打底 → P 论道（为什么/怎么设计）→ D 习术（怎么动手实现）→ I 产业实践；X 提供相关主题扩展。
 
 ### 公共基础篇
 
@@ -81,9 +90,24 @@
 
 > D = 术篇，Dev / Developer（开发者视角，"用其术"），面向能调 LLM API 的开发者，讲可运行的工程实战。
 
-### Extra Chapter（共建招募中）
+### 产业应用篇
 
-| # | 扩展章节标题 | 热点趋势 | 共建入口（对应列表 A） |
+| 课程编号 | 课程标题 | 开发状态 | 共建入口 |
+| --- | --- | --- | --- |
+| I1 | AI 原生数据库基础 | 开发中 | [#90](https://github.com/datawhalechina/easy-data-x-ai/issues/90) |
+| I2 | 向量数据库与 RAG | 开发中 | [#91](https://github.com/datawhalechina/easy-data-x-ai/issues/91) |
+| I3 | SQL × AI —— AI Functions 的设计与执行 | 开发中 | [#92](https://github.com/datawhalechina/easy-data-x-ai/issues/92) |
+| I4 | File SQL for AI Agent | 开发中 | [#93](https://github.com/datawhalechina/easy-data-x-ai/issues/93) |
+| I5 | AI 列 —— 模型驱动派生数据的自动维护 | 开发中 | [#94](https://github.com/datawhalechina/easy-data-x-ai/issues/94) |
+| I6 | 上下文工程概述 | 开发中 | [#95](https://github.com/datawhalechina/easy-data-x-ai/issues/95) |
+| I7 | PowerContext 的设计与实现 | 开发中 | [#96](https://github.com/datawhalechina/easy-data-x-ai/issues/96) |
+| I8 | 案例场景和测评构建 | 开发中 | [#97](https://github.com/datawhalechina/easy-data-x-ai/issues/97) |
+
+> I = 产业应用篇，Industry Practice（产业实践）。本篇连接现有 D2、D3、D4 的工程内容，补充产业技术主题、场景设计和测评方法。
+
+### Extra Chapter
+
+| # | 扩展章节标题 | 相关主题 | 共建入口 |
 | --- | --- | --- | --- |
 | **X1** | 探究 AI Agent 记忆系统：从遗忘曲线到永久记忆 | AI 记忆 | 多 Agent 记忆冲突解决（→ [#19](https://github.com/datawhalechina/easy-data-x-ai/issues/19)/[#20](https://github.com/datawhalechina/easy-data-x-ai/issues/20)/[#21](https://github.com/datawhalechina/easy-data-x-ai/issues/21)） |
 | **X2** | 多 Skill 给上下文工程带来的麻烦：如何应对 Agent「爆上下文」 | 多 Skill / 上下文工程 | Skill 设计规范（→ [#22](https://github.com/datawhalechina/easy-data-x-ai/issues/22)/[#23](https://github.com/datawhalechina/easy-data-x-ai/issues/23)） |

@@ -22,9 +22,9 @@ X2/
 
 ## 快速开始
 
-### 0. 启动 seekdb（macOS / Windows 必做）
+### 0. 选择运行模式（可选）
 
-> **macOS 不支持嵌入式 seekdb**（缺少 `pylibseekdb`），课程推荐使用 Docker Server 模式。Linux 可跳过此步，自动使用嵌入式模式。
+> Linux 和 Apple Silicon macOS 15+ 安装匹配平台的 `pylibseekdb` 后，可直接使用 Embedded 模式，无需 Docker。需要独立实例或当前平台没有可用原生绑定时，可选择 Docker Server 模式。
 
 ```bash
 cd code/X2
@@ -67,7 +67,7 @@ python tools/query_tool.py get api-doc-writing
 python x2_1_compare_context.py
 ```
 
-### Linux 嵌入式模式（无需 Docker）
+### Linux / Apple Silicon macOS 15+ 嵌入式模式（无需 Docker）
 
 ```bash
 cd code/X2
@@ -97,7 +97,7 @@ SKILL.md → migrate → seekdb → search_skills(query) → 只加载 rules/exa
 | 现象 | 处理 |
 | --- | --- |
 | `无法连接 127.0.0.1:2881` | 执行 `docker compose up -d`，再跑 `check_seekdb.py` |
-| macOS 嵌入式报错 | 正常，请用 Docker Server 模式 |
+| Embedded 模式加载原生绑定失败 | 确认当前系统和 Python 版本有匹配的 `pylibseekdb`；否则改用 Docker Server 模式 |
 | 集合为空 | 确认已执行 `migrate.py skills/ --all` |
 
 更多连接配置见 [`database/README.md`](database/README.md)。
