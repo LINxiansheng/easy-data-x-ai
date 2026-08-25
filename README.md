@@ -107,7 +107,7 @@
 
 ### Extra Chapter
 
-| # | 扩展章节标题 | 相关主题 | 共建入口（对应列表 A） |
+| # | 扩展章节标题 | 相关主题 | 共建入口 |
 | --- | --- | --- | --- |
 | **X1** | 探究 AI Agent 记忆系统：从遗忘曲线到永久记忆 | AI 记忆 | 多 Agent 记忆冲突解决（→ [#19](https://github.com/datawhalechina/easy-data-x-ai/issues/19)/[#20](https://github.com/datawhalechina/easy-data-x-ai/issues/20)/[#21](https://github.com/datawhalechina/easy-data-x-ai/issues/21)） |
 | **X2** | 多 Skill 给上下文工程带来的麻烦：如何应对 Agent「爆上下文」 | 多 Skill / 上下文工程 | Skill 设计规范（→ [#22](https://github.com/datawhalechina/easy-data-x-ai/issues/22)/[#23](https://github.com/datawhalechina/easy-data-x-ai/issues/23)） |
