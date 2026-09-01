@@ -402,9 +402,7 @@ Fork 隔离了试写，Diff 暴露了变化，但 Merge 决策仍需要业务规
 
 ## 参考资料
 
-- 本节配图均整理自《第六届 OceanBase 数据库大赛训练营第一讲》；
-- 《第六届 OceanBase 数据库大赛训练营第一讲》，王泽林，2026 年 8 月；
-- [seekdb 技术架构与核心能力](https://yuque.antfin.com/obopensrc/tignua/xc8xav9ubuhlgbyd)；
+- [seekdb 技术架构与核心能力](https://oceanbase.yuque.com/org-wiki-obtech-vh7w9r/hc3pio/hgln7zgktka4kg1u)；
 - [seekdb 官网](https://www.seekdb.ai/)；
 - [seekdb GitHub](https://github.com/oceanbase/seekdb)。
 
